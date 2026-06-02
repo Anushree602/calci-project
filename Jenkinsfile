@@ -1,6 +1,5 @@
 pipeline {
-    agent any
-    aws-cred
+    agent {label 'linux'}
     environment {
         cluster_name = "my-cluster-1"
         Region = "eu-north-1"
@@ -15,7 +14,7 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/Anushree602/calc-web-app-mvn.git'
+                git url: 'https://github.com/Anushree602/calci-project.git'
                 echo "Code Checked-out Successfully!!";
                 sh 'ls -la'
             }
