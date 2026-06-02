@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent { label 'linux'}
     stages {
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/rchidana/calcwebapp.git'    
+                git url: 'https://github.com/Anushree602/calci-project.git'    
 		            echo "Code Checked-out Successfully!!";
             }
         }
