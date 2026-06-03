@@ -50,7 +50,7 @@ pipeline {
                 sh 'aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 734101502228.dkr.ecr.eu-north-1.amazonaws.com'
                 echo "Logged in to AWS ECR Successfully!!"
 
-                sh 'docker tag calcwebappmvn:v1 734101502228.dkr.ecr.eu-north-1.amazonaws.com/calc-project:10'
+                sh 'docker tag calcwebappmvn:v1 734101502228.dkr.ecr.eu-north-1.amazonaws.com/calc-project:$BUILD_NUMBER'
                 echo "Docker Image Tagged Successfully!!"
                 sh 'docker images'
             }
@@ -58,7 +58,7 @@ pipeline {
 
         stage('Push to ECR') {
             steps {
-                sh 'docker push 734101502228.dkr.ecr.eu-north-1.amazonaws.com/calc-project:10'
+                sh 'docker push 734101502228.dkr.ecr.eu-north-1.amazonaws.com/calc-project:$BUILD_NUMBER'
                 echo "Docker Image Pushed to ECR Successfully!!"
             }
         }
