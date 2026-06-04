@@ -101,18 +101,9 @@ pipeline {
                 //sh 'kubectl apply -f k8s-deployment.yaml'
                 //echo "Application Deployed to EKS Successfully!!"
             }
-        }
-
-
-
-
-
-
+       }
 
     }
-
-
-
     post {
         success {
             echo 'pipeline is successful'
